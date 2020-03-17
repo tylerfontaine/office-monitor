@@ -1,0 +1,64 @@
+version: "3.7"
+
+services:
+  grafana:
+    container_name: grafana
+    image: "grafana/grafana"
+    environment:
+      - GF_SERVER_ROOT_URL=https://192.168.1.32:3000
+      - GF_SERVER_PROTOCOL=https
+      - GF_SERVER_CERT_FILE=/etc/keys/cert.pem
+      - GF_SERVER_CERT_KEY=/etc/keys/key.pem
+      - GF_SECURITY_STRICT_TRANSPORT_SECURITY=false
+      - GF_INSTALL_PLUGINS=grafana-piechart-panel
+      - GF_INSTALL_DIR=/tmp/grafana
+    ports:
+      - "3000:3000"
+    networks:
+      - compose
+    volumes:
+      - /srv/grafana:/usr/local/var/lib/grafana
+      - /opt/docker/timescale-demo/keys:/etc/keys
+      - /opt/docker/grafana-plugins:/tmp/grafana
+  pgadmin:
+    container_name: pgadmin
+    image: "dpage/pgadmin4"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: tyler@tylerfontaine.com
+      PGADMIN_DEFAULT_PASSWORD: password
+    ports:
+      - "80:80"
+    networks:
+      - compose
+  prometheus-adapter:
+    container_name: prom_adapt
+    image: "timescale/prometheus-postgresql-adapter"
+    environment:
+      - TS_PROM_PG_HOST=192.168.1.33
+      - TS_PROM_PG_PASSWORD=password
+    depends_on:
+     - prometheus
+    ports:
+      - "9201:9201"
+    networks:
+      - compose
+  prometheus:
+    container_name: prom
+    image: prom/prometheus:latest
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention=30d'
+      - '--web.enable-lifecycle'
+    volumes:
+      - /opt/docker/timescale-demo/configs/:/etc/prometheus/
+    ports:
+      - "9090:9090"
+    networks:
+      - compose
+
+networks:
+  compose:
+    name: compose-test

@@ -1,0 +1,495 @@
+Creating network "compose-test" with the default driver
+Creating tsdb ... 
+[1A[2KCreating tsdb ... [32mdone[0m[1BCreating prom_adapt ... 
+Creating pgadmin    ... 
+Creating grafana    ... 
+[1A[2KCreating grafana    ... [32mdone[0m[1B[2A[2KCreating pgadmin    ... [32mdone[0m[2B[3A[2KCreating prom_adapt ... [32mdone[0m[3BCreating prom       ... 
+[1A[2KCreating prom       ... [32mdone[0m[1BAttaching to tsdb, grafana, pgadmin, prom_adapt, prom
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Starting Grafana" logger=server version=6.6.0 commit=5c11bbdfb4 branch=HEAD compiled=2020-01-27T12:32:03+0000
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Config loaded from" logger=settings file=/usr/share/grafana/conf/defaults.ini
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Config loaded from" logger=settings file=/etc/grafana/grafana.ini
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Config overridden from command line" logger=settings arg="default.paths.data=/var/lib/grafana"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Config overridden from command line" logger=settings arg="default.paths.logs=/var/log/grafana"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Config overridden from command line" logger=settings arg="default.paths.plugins=/var/lib/grafana/plugins"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Config overridden from command line" logger=settings arg="default.paths.provisioning=/etc/grafana/provisioning"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Config overridden from command line" logger=settings arg="default.log.mode=console"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Config overridden from Environment variable" logger=settings var="GF_PATHS_DATA=/var/lib/grafana"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Config overridden from Environment variable" logger=settings var="GF_PATHS_LOGS=/var/log/grafana"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Config overridden from Environment variable" logger=settings var="GF_PATHS_PLUGINS=/var/lib/grafana/plugins"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Config overridden from Environment variable" logger=settings var="GF_PATHS_PROVISIONING=/etc/grafana/provisioning"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Config overridden from Environment variable" logger=settings var="GF_SERVER_PROTOCOL=https"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Config overridden from Environment variable" logger=settings var="GF_SERVER_ROOT_URL=https://monitoring.tylerfontaine.me:3000"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Config overridden from Environment variable" logger=settings var="GF_SERVER_CERT_FILE=/etc/keys/cert.pem"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Config overridden from Environment variable" logger=settings var="GF_SERVER_CERT_KEY=/etc/keys/key.pem"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Config overridden from Environment variable" logger=settings var="GF_SECURITY_STRICT_TRANSPORT_SECURITY=false"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Path Home" logger=settings path=/usr/share/grafana
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Path Data" logger=settings path=/var/lib/grafana
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Path Logs" logger=settings path=/var/log/grafana
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Path Plugins" logger=settings path=/var/lib/grafana/plugins
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Path Provisioning" logger=settings path=/etc/grafana/provisioning
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="App mode production" logger=settings
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Initializing SqlStore" logger=server
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Starting DB migration" logger=migrator
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Executing migration" logger=migrator id="create migration_log table"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Executing migration" logger=migrator id="create user table"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Executing migration" logger=migrator id="add unique index user.login"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Executing migration" logger=migrator id="add unique index user.email"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Executing migration" logger=migrator id="drop index UQE_user_login - v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Executing migration" logger=migrator id="drop index UQE_user_email - v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Executing migration" logger=migrator id="Rename table user to user_v1 - v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Executing migration" logger=migrator id="create user table v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Executing migration" logger=migrator id="create index UQE_user_login - v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Executing migration" logger=migrator id="create index UQE_user_email - v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Executing migration" logger=migrator id="copy data_source v1 to v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Executing migration" logger=migrator id="Drop old table user_v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Executing migration" logger=migrator id="Add column help_flags1 to user table"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Executing migration" logger=migrator id="Update user table charset"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Executing migration" logger=migrator id="Add last_seen_at column to user"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Executing migration" logger=migrator id="Add missing user data"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Executing migration" logger=migrator id="Add is_disabled column to user"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Executing migration" logger=migrator id="create temp user table v1-7"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Executing migration" logger=migrator id="create index IDX_temp_user_email - v1-7"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Executing migration" logger=migrator id="create index IDX_temp_user_org_id - v1-7"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Executing migration" logger=migrator id="create index IDX_temp_user_code - v1-7"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Executing migration" logger=migrator id="create index IDX_temp_user_status - v1-7"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Executing migration" logger=migrator id="Update temp_user table charset"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Executing migration" logger=migrator id="create star table"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Executing migration" logger=migrator id="add unique index star.user_id_dashboard_id"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Executing migration" logger=migrator id="create org table v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Executing migration" logger=migrator id="create index UQE_org_name - v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Executing migration" logger=migrator id="create org_user table v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Executing migration" logger=migrator id="create index IDX_org_user_org_id - v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:00+0000 lvl=info msg="Executing migration" logger=migrator id="create index UQE_org_user_org_id_user_id - v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Update org table charset"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Update org_user table charset"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Migrate all Read Only Viewers to Viewers"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="create dashboard table"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="add index dashboard.account_id"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="add unique index dashboard_account_id_slug"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="create dashboard_tag table"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="add unique index dashboard_tag.dasboard_id_term"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="drop index UQE_dashboard_tag_dashboard_id_term - v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Rename table dashboard to dashboard_v1 - v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="create dashboard v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="create index IDX_dashboard_org_id - v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="create index UQE_dashboard_org_id_slug - v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="copy dashboard v1 to v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="drop table dashboard_v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="alter dashboard.data to mediumtext v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Add column updated_by in dashboard - v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Add column created_by in dashboard - v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Add column gnetId in dashboard"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Add index for gnetId in dashboard"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Add column plugin_id in dashboard"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Add index for plugin_id in dashboard"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Add index for dashboard_id in dashboard_tag"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Update dashboard table charset"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Update dashboard_tag table charset"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Add column folder_id in dashboard"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Add column isFolder in dashboard"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Add column has_acl in dashboard"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Add column uid in dashboard"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Update uid column values in dashboard"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Add unique index dashboard_org_id_uid"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Remove unique index org_id_slug"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Update dashboard title length"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Add unique index for dashboard_org_id_title_folder_id"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="create dashboard_provisioning"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Rename table dashboard_provisioning to dashboard_provisioning_tmp_qwerty - v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="create dashboard_provisioning v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="create index IDX_dashboard_provisioning_dashboard_id - v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="create index IDX_dashboard_provisioning_dashboard_id_name - v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="copy dashboard_provisioning v1 to v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="drop dashboard_provisioning_tmp_qwerty"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Add check_sum column"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="create data_source table"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="add index data_source.account_id"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="add unique index data_source.account_id_name"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="drop index IDX_data_source_account_id - v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="drop index UQE_data_source_account_id_name - v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Rename table data_source to data_source_v1 - v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="create data_source table v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="create index IDX_data_source_org_id - v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="create index UQE_data_source_org_id_name - v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="copy data_source v1 to v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Drop old table data_source_v1 #2"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Add column with_credentials"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Add secure json data column"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Update data_source table charset"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Update initial version to 1"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Add read_only data column"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Migrate logging ds to loki ds"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Update json_data with nulls"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="create api_key table"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="add index api_key.account_id"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="add index api_key.key"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="add index api_key.account_id_name"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="drop index IDX_api_key_account_id - v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="drop index UQE_api_key_key - v1"
+[32mprom                  |[0m level=warn ts=2020-02-02T16:29:01.954Z caller=main.go:283 deprecation_notice="'storage.tsdb.retention' flag is deprecated use 'storage.tsdb.retention.time' instead."
+[32mprom                  |[0m level=info ts=2020-02-02T16:29:01.954Z caller=main.go:330 msg="Starting Prometheus" version="(version=2.15.2, branch=HEAD, revision=d9613e5c466c6e9de548c4dae1b9aabf9aaf7c57)"
+[32mprom                  |[0m level=info ts=2020-02-02T16:29:01.954Z caller=main.go:331 build_context="(go=go1.13.5, user=root@688433cf4ff7, date=20200106-14:50:51)"
+[32mprom                  |[0m level=info ts=2020-02-02T16:29:01.954Z caller=main.go:332 host_details="(Linux 4.18.0-147.3.1.el8_1.x86_64 #1 SMP Fri Jan 3 23:55:26 UTC 2020 x86_64 338ccb74a34b (none))"
+[32mprom                  |[0m level=info ts=2020-02-02T16:29:01.954Z caller=main.go:333 fd_limits="(soft=1048576, hard=1048576)"
+[32mprom                  |[0m level=info ts=2020-02-02T16:29:01.954Z caller=main.go:334 vm_limits="(soft=unlimited, hard=unlimited)"
+[32mprom                  |[0m level=info ts=2020-02-02T16:29:01.957Z caller=main.go:648 msg="Starting TSDB ..."
+[32mprom                  |[0m level=info ts=2020-02-02T16:29:01.957Z caller=web.go:506 component=web msg="Start listening for connections" address=0.0.0.0:9090
+[32mprom                  |[0m level=info ts=2020-02-02T16:29:01.967Z caller=head.go:584 component=tsdb msg="replaying WAL, this may take awhile"
+[32mprom                  |[0m level=info ts=2020-02-02T16:29:01.967Z caller=head.go:632 component=tsdb msg="WAL segment loaded" segment=0 maxSegment=0
+[32mprom                  |[0m level=info ts=2020-02-02T16:29:01.968Z caller=main.go:663 fs_type=XFS_SUPER_MAGIC
+[32mprom                  |[0m level=info ts=2020-02-02T16:29:01.968Z caller=main.go:664 msg="TSDB started"
+[32mprom                  |[0m level=info ts=2020-02-02T16:29:01.968Z caller=main.go:734 msg="Loading configuration file" filename=/etc/prometheus/prometheus.yml
+[32mprom                  |[0m level=info ts=2020-02-02T16:29:01.971Z caller=main.go:517 msg="Stopping scrape discovery manager..."
+[32mprom                  |[0m level=info ts=2020-02-02T16:29:01.971Z caller=main.go:531 msg="Stopping notify discovery manager..."
+[32mprom                  |[0m level=info ts=2020-02-02T16:29:01.971Z caller=main.go:553 msg="Stopping scrape manager..."
+[32mprom                  |[0m level=info ts=2020-02-02T16:29:01.971Z caller=main.go:527 msg="Notify discovery manager stopped"
+[35mprom_adapt            |[0m {"caller":"log.go:31","config":"\u0026{remoteTimeout:30000000000 listenAddr::9201 telemetryPath:/metrics pgPrometheusConfig:{host:localhost port:5432 user:postgres password:password database:postgres schema: sslMode:disable table:metrics copyTable: maxOpenConns:50 maxIdleConns:10 pgPrometheusNormalize:true pgPrometheusLogSamples:false pgPrometheusChunkInterval:43200000000000 useTimescaleDb:true dbConnectRetries:0 readOnly:false} logLevel:debug haGroupLockID:0 restElection:false prometheusTimeout:-1 electionInterval:5000000000}","level":"info","ts":"2020-02-02T16:29:00.697Z"}
+[35mprom_adapt            |[0m {"caller":"log.go:31","level":"info","msg":"host=localhost port=5432 user=postgres dbname=postgres password='password' sslmode=disable connect_timeout=10","ts":"2020-02-02T16:29:00.697Z"}
+[35mprom_adapt            |[0m {"caller":"log.go:39","err":"dial tcp 127.0.0.1:5432: connect: connection refused","level":"error","ts":"2020-02-02T16:29:00.700Z"}
+[32mprom                  |[0m level=info ts=2020-02-02T16:29:01.972Z caller=main.go:513 msg="Scrape discovery manager stopped"
+[32mprom                  |[0m level=info ts=2020-02-02T16:29:01.972Z caller=main.go:547 msg="Scrape manager stopped"
+[32mprom                  |[0m level=info ts=2020-02-02T16:29:01.972Z caller=manager.go:814 component="rule manager" msg="Stopping rule manager..."
+[32mprom                  |[0m level=info ts=2020-02-02T16:29:01.972Z caller=manager.go:820 component="rule manager" msg="Rule manager stopped"
+[32mprom                  |[0m level=info ts=2020-02-02T16:29:01.972Z caller=notifier.go:598 component=notifier msg="Stopping notification manager..."
+[32mprom                  |[0m level=info ts=2020-02-02T16:29:01.973Z caller=main.go:718 msg="Notifier manager stopped"
+[32mprom                  |[0m level=error ts=2020-02-02T16:29:01.973Z caller=main.go:727 err="error loading config from \"/etc/prometheus/prometheus.yml\": couldn't load configuration (--config.file=\"/etc/prometheus/prometheus.yml\"): parsing YAML file /etc/prometheus/prometheus.yml: yaml: unmarshal errors:\n  line 6: field remote_write not found in type config.plain\n  line 8: field remote_read not found in type config.plain"
+[34mtsdb                  |[0m The files belonging to this database system will be owned by user "postgres".
+[34mtsdb                  |[0m This user must also own the server process.
+[34mtsdb                  |[0m 
+[34mtsdb                  |[0m The database cluster will be initialized with locale "en_US.utf8".
+[34mtsdb                  |[0m The default database encoding has accordingly been set to "UTF8".
+[34mtsdb                  |[0m The default text search configuration will be set to "english".
+[34mtsdb                  |[0m 
+[34mtsdb                  |[0m Data page checksums are disabled.
+[34mtsdb                  |[0m 
+[34mtsdb                  |[0m fixing permissions on existing directory /var/lib/postgresql/data ... ok
+[34mtsdb                  |[0m creating subdirectories ... ok
+[34mtsdb                  |[0m selecting default max_connections ... 100
+[34mtsdb                  |[0m selecting default shared_buffers ... 128MB
+[34mtsdb                  |[0m selecting default timezone ... UTC
+[34mtsdb                  |[0m selecting dynamic shared memory implementation ... posix
+[34mtsdb                  |[0m creating configuration files ... ok
+[34mtsdb                  |[0m running bootstrap script ... ok
+[34mtsdb                  |[0m performing post-bootstrap initialization ... sh: locale: not found
+[34mtsdb                  |[0m 2020-02-02 16:28:59.587 UTC [27] WARNING:  no usable system locales were found
+[35mprom_adapt exited with code 1
+[0m[34mtsdb                  |[0m ok
+[34mtsdb                  |[0m syncing data to disk ... ok
+[34mtsdb                  |[0m 
+[34mtsdb                  |[0m Success. You can now start the database server using:
+[34mtsdb                  |[0m 
+[34mtsdb                  |[0m     pg_ctl -D /var/lib/postgresql/data -l logfile start
+[34mtsdb                  |[0m 
+[34mtsdb                  |[0m 
+[34mtsdb                  |[0m WARNING: enabling "trust" authentication for local connections
+[34mtsdb                  |[0m You can change this by editing pg_hba.conf or using the option -A, or
+[34mtsdb                  |[0m --auth-local and --auth-host, the next time you run initdb.
+[34mtsdb                  |[0m waiting for server to start....2020-02-02 16:29:00.295 UTC [31] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[34mtsdb                  |[0m 2020-02-02 16:29:00.347 UTC [32] LOG:  database system was shut down at 2020-02-02 16:29:00 UTC
+[34mtsdb                  |[0m 2020-02-02 16:29:00.364 UTC [31] LOG:  database system is ready to accept connections
+[34mtsdb                  |[0m 2020-02-02 16:29:00.367 UTC [38] LOG:  TimescaleDB background worker launcher connected to shared catalogs
+[34mtsdb                  |[0m  done
+[34mtsdb                  |[0m server started
+[34mtsdb                  |[0m 
+[34mtsdb                  |[0m /usr/local/bin/docker-entrypoint.sh: sourcing /docker-entrypoint-initdb.d/000_install_timescaledb.sh
+[34mtsdb                  |[0m 2020-02-02 16:29:00.920 UTC [42] WARNING:  
+[34mtsdb                  |[0m 	WELCOME TO
+[34mtsdb                  |[0m 	 _____ _                               _     ____________  
+[34mtsdb                  |[0m 	|_   _(_)                             | |    |  _  \ ___ \ 
+[34mtsdb                  |[0m 	  | |  _ _ __ ___   ___  ___  ___ __ _| | ___| | | | |_/ / 
+[34mtsdb                  |[0m 	  | | | |  _ ` _ \ / _ \/ __|/ __/ _` | |/ _ \ | | | ___ \ 
+[34mtsdb                  |[0m 	  | | | | | | | | |  __/\__ \ (_| (_| | |  __/ |/ /| |_/ /
+[34mtsdb                  |[0m 	  |_| |_|_| |_| |_|\___||___/\___\__,_|_|\___|___/ \____/
+[34mtsdb                  |[0m 	               Running version 1.5.1
+[34mtsdb                  |[0m 	For more information on TimescaleDB, please visit the following links:
+[34mtsdb                  |[0m 	
+[34mtsdb                  |[0m 	 1. Getting started: https://docs.timescale.com/getting-started
+[34mtsdb                  |[0m 	 2. API reference documentation: https://docs.timescale.com/api
+[34mtsdb                  |[0m 	 3. How TimescaleDB is designed: https://docs.timescale.com/introduction/architecture
+[34mtsdb                  |[0m 	
+[34mtsdb                  |[0m 	Note: TimescaleDB collects anonymous reports to better understand and assist our users.
+[34mtsdb                  |[0m 	For more information and how to disable, please see our docs https://docs.timescaledb.com/using-timescaledb/telemetry.
+[34mtsdb                  |[0m 	
+[34mtsdb                  |[0m 2020-02-02 16:29:00.920 UTC [42] CONTEXT:  PL/pgSQL function inline_code_block line 23 at RAISE
+[34mtsdb                  |[0m WARNING:  
+[34mtsdb                  |[0m WELCOME TO
+[34mtsdb                  |[0m  _____ _                               _     ____________  
+[34mtsdb                  |[0m |_   _(_)                             | |    |  _  \ ___ \ 
+[34mtsdb                  |[0m   | |  _ _ __ ___   ___  ___  ___ __ _| | ___| | | | |_/ / 
+[34mtsdb                  |[0m   | | | |  _ ` _ \ / _ \/ __|/ __/ _` | |/ _ \ | | | ___ \ 
+[34mtsdb                  |[0m   | | | | | | | | |  __/\__ \ (_| (_| | |  __/ |/ /| |_/ /
+[34mtsdb                  |[0m   |_| |_|_| |_| |_|\___||___/\___\__,_|_|\___|___/ \____/
+[34mtsdb                  |[0m                Running version 1.5.1
+[34mtsdb                  |[0m For more information on TimescaleDB, please visit the following links:
+[34mtsdb                  |[0m 
+[34mtsdb                  |[0m  1. Getting started: https://docs.timescale.com/getting-started
+[34mtsdb                  |[0m  2. API reference documentation: https://docs.timescale.com/api
+[34mtsdb                  |[0m  3. How TimescaleDB is designed: https://docs.timescale.com/introduction/architecture
+[34mtsdb                  |[0m 
+[34mtsdb                  |[0m Note: TimescaleDB collects anonymous reports to better understand and assist our users.
+[34mtsdb                  |[0m For more information and how to disable, please see our docs https://docs.timescaledb.com/using-timescaledb/telemetry.
+[34mtsdb                  |[0m 
+[34mtsdb                  |[0m CREATE EXTENSION
+[34mtsdb                  |[0m 2020-02-02 16:29:01.358 UTC [47] LOG:  the "timescaledb" extension is not up-to-date
+[34mtsdb                  |[0m 2020-02-02 16:29:01.358 UTC [47] HINT:  The most up-to-date version is 1.6.0, the installed version is 1.5.1
+[34mtsdb                  |[0m 2020-02-02 16:29:01.544 UTC [46] WARNING:  
+[34mtsdb                  |[0m 	WELCOME TO
+[34mtsdb                  |[0m 	 _____ _                               _     ____________  
+[34mtsdb                  |[0m 	|_   _(_)                             | |    |  _  \ ___ \ 
+[34mtsdb                  |[0m 	  | |  _ _ __ ___   ___  ___  ___ __ _| | ___| | | | |_/ / 
+[34mtsdb                  |[0m 	  | | | |  _ ` _ \ / _ \/ __|/ __/ _` | |/ _ \ | | | ___ \ 
+[34mtsdb                  |[0m 	  | | | | | | | | |  __/\__ \ (_| (_| | |  __/ |/ /| |_/ /
+[34mtsdb                  |[0m 	  |_| |_|_| |_| |_|\___||___/\___\__,_|_|\___|___/ \____/
+[34mtsdb                  |[0m 	               Running version 1.5.1
+[34mtsdb                  |[0m 	For more information on TimescaleDB, please visit the following links:
+[34mtsdb                  |[0m 	
+[34mtsdb                  |[0m 	 1. Getting started: https://docs.timescale.com/getting-started
+[34mtsdb                  |[0m 	 2. API reference documentation: https://docs.timescale.com/api
+[34mtsdb                  |[0m 	 3. How TimescaleDB is designed: https://docs.timescale.com/introduction/architecture
+[34mtsdb                  |[0m 	
+[34mtsdb                  |[0m 	Note: TimescaleDB collects anonymous reports to better understand and assist our users.
+[34mtsdb                  |[0m 	For more information and how to disable, please see our docs https://docs.timescaledb.com/using-timescaledb/telemetry.
+[34mtsdb                  |[0m 	
+[34mtsdb                  |[0m 2020-02-02 16:29:01.544 UTC [46] CONTEXT:  PL/pgSQL function inline_code_block line 23 at RAISE
+[34mtsdb                  |[0m WARNING:  
+[34mtsdb                  |[0m WELCOME TO
+[34mtsdb                  |[0m  _____ _                               _     ____________  
+[34mtsdb                  |[0m |_   _(_)                             | |    |  _  \ ___ \ 
+[34mtsdb                  |[0m   | |  _ _ __ ___   ___  ___  ___ __ _| | ___| | | | |_/ / 
+[34mtsdb                  |[0m   | | | |  _ ` _ \ / _ \/ __|/ __/ _` | |/ _ \ | | | ___ \ 
+[34mtsdb                  |[0m   | | | | | | | | |  __/\__ \ (_| (_| | |  __/ |/ /| |_/ /
+[34mtsdb                  |[0m   |_| |_|_| |_| |_|\___||___/\___\__,_|_|\___|___/ \____/
+[34mtsdb                  |[0m                Running version 1.5.1
+[34mtsdb                  |[0m For more information on TimescaleDB, please visit the following links:
+[34mtsdb                  |[0m 
+[34mtsdb                  |[0m  1. Getting started: https://docs.timescale.com/getting-started
+[34mtsdb                  |[0m  2. API reference documentation: https://docs.timescale.com/api
+[34mtsdb                  |[0m  3. How TimescaleDB is designed: https://docs.timescale.com/introduction/architecture
+[34mtsdb                  |[0m 
+[34mtsdb                  |[0m Note: TimescaleDB collects anonymous reports to better understand and assist our users.
+[34mtsdb                  |[0m For more information and how to disable, please see our docs https://docs.timescaledb.com/using-timescaledb/telemetry.
+[34mtsdb                  |[0m 
+[34mtsdb                  |[0m CREATE EXTENSION
+[34mtsdb                  |[0m 
+[34mtsdb                  |[0m /usr/local/bin/docker-entrypoint.sh: sourcing /docker-entrypoint-initdb.d/001_reenable_auth.sh
+[34mtsdb                  |[0m 2020-02-02 16:29:01.553 UTC [48] ERROR:  TimescaleDB background worker connected to template database, exiting
+[34mtsdb                  |[0m 2020-02-02 16:29:01.554 UTC [31] LOG:  background worker "TimescaleDB Background Worker Scheduler" (PID 48) exited with exit code 1
+[34mtsdb                  |[0m 
+[34mtsdb                  |[0m /usr/local/bin/docker-entrypoint.sh: running /docker-entrypoint-initdb.d/002_timescaledb_tune.sh
+[34mtsdb                  |[0m [37;1mUsing postgresql.conf at this path:
+[34mtsdb                  |[0m [0m/var/lib/postgresql/data/postgresql.conf
+[34mtsdb                  |[0m 
+[34mtsdb                  |[0m [37;1mWriting backup to:
+[34mtsdb                  |[0m [0m/tmp/timescaledb_tune.backup202002021629
+[34mtsdb                  |[0m 
+[34mtsdb                  |[0m [37;1mRecommendations based on 3.69 GB of available memory and 2 CPUs for PostgreSQL 11
+[34mtsdb                  |[0m [0m[37;1mSaving changes to: /var/lib/postgresql/data/postgresql.conf
+[34mtsdb                  |[0m [0mshared_buffers = 967913kB
+[34mtsdb                  |[0m effective_cache_size = 2835MB
+[34mtsdb                  |[0m maintenance_work_mem = 483956kB
+[34mtsdb                  |[0m work_mem = 4839kB
+[34mtsdb                  |[0m timescaledb.max_background_workers = 8
+[34mtsdb                  |[0m max_worker_processes = 13
+[34mtsdb                  |[0m max_parallel_workers_per_gather = 1
+[34mtsdb                  |[0m max_parallel_workers = 2
+[34mtsdb                  |[0m wal_buffers = 16MB
+[34mtsdb                  |[0m min_wal_size = 4GB
+[34mtsdb                  |[0m max_wal_size = 8GB
+[34mtsdb                  |[0m default_statistics_target = 500
+[34mtsdb                  |[0m random_page_cost = 1.1
+[34mtsdb                  |[0m checkpoint_completion_target = 0.9
+[34mtsdb                  |[0m max_locks_per_transaction = 64
+[34mtsdb                  |[0m autovacuum_max_workers = 10
+[34mtsdb                  |[0m autovacuum_naptime = 10
+[34mtsdb                  |[0m effective_io_concurrency = 200
+[34mtsdb                  |[0m timescaledb.last_tuned = '2020-02-02T16:29:01Z'
+[34mtsdb                  |[0m timescaledb.last_tuned_version = '0.7.0'
+[34mtsdb                  |[0m 
+[34mtsdb                  |[0m waiting for server to shut down....2020-02-02 16:29:01.598 UTC [31] LOG:  received fast shutdown request
+[34mtsdb                  |[0m 2020-02-02 16:29:01.600 UTC [31] LOG:  aborting any active transactions
+[34mtsdb                  |[0m 2020-02-02 16:29:01.600 UTC [43] LOG:  terminating TimescaleDB job scheduler due to administrator command
+[34mtsdb                  |[0m 2020-02-02 16:29:01.600 UTC [43] FATAL:  terminating connection due to administrator command
+[34mtsdb                  |[0m 2020-02-02 16:29:01.602 UTC [38] LOG:  terminating TimescaleDB background worker launcher due to administrator command
+[34mtsdb                  |[0m 2020-02-02 16:29:01.602 UTC [38] FATAL:  terminating connection due to administrator command
+[34mtsdb                  |[0m 2020-02-02 16:29:01.602 UTC [31] LOG:  background worker "TimescaleDB Background Worker Launcher" (PID 38) exited with exit code 1
+[34mtsdb                  |[0m 2020-02-02 16:29:01.602 UTC [31] LOG:  background worker "logical replication launcher" (PID 39) exited with exit code 1
+[34mtsdb                  |[0m 2020-02-02 16:29:01.602 UTC [31] LOG:  background worker "TimescaleDB Background Worker Scheduler" (PID 43) exited with exit code 1
+[34mtsdb                  |[0m 2020-02-02 16:29:01.603 UTC [33] LOG:  shutting down
+[34mtsdb                  |[0m 2020-02-02 16:29:01.680 UTC [31] LOG:  database system is shut down
+[34mtsdb                  |[0m  done
+[34mtsdb                  |[0m server stopped
+[34mtsdb                  |[0m 
+[34mtsdb                  |[0m PostgreSQL init process complete; ready for start up.
+[34mtsdb                  |[0m 
+[34mtsdb                  |[0m 2020-02-02 16:29:01.713 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+[34mtsdb                  |[0m 2020-02-02 16:29:01.713 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+[34mtsdb                  |[0m 2020-02-02 16:29:01.722 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[34mtsdb                  |[0m 2020-02-02 16:29:01.782 UTC [66] LOG:  database system was shut down at 2020-02-02 16:29:01 UTC
+[34mtsdb                  |[0m 2020-02-02 16:29:01.790 UTC [1] LOG:  database system is ready to accept connections
+[34mtsdb                  |[0m 2020-02-02 16:29:01.795 UTC [72] LOG:  TimescaleDB background worker launcher connected to shared catalogs
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="drop index UQE_api_key_account_id_name - v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:01+0000 lvl=info msg="Executing migration" logger=migrator id="Rename table api_key to api_key_v1 - v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create api_key table v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create index IDX_api_key_org_id - v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create index UQE_api_key_key - v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create index UQE_api_key_org_id_name - v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="copy api_key v1 to v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Drop old table api_key_v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Update api_key table charset"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Add expires to api_key table"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create dashboard_snapshot table v4"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="drop table dashboard_snapshot_v4 #1"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create dashboard_snapshot table v5 #2"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create index UQE_dashboard_snapshot_key - v5"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create index UQE_dashboard_snapshot_delete_key - v5"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create index IDX_dashboard_snapshot_user_id - v5"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="alter dashboard_snapshot to mediumtext v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Update dashboard_snapshot table charset"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Add column external_delete_url to dashboard_snapshots table"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create quota table v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create index UQE_quota_org_id_user_id_target - v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Update quota table charset"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create plugin_setting table"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create index UQE_plugin_setting_org_id_plugin_id - v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Add column plugin_version to plugin_settings"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Update plugin_setting table charset"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create session table"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Drop old table playlist table"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Drop old table playlist_item table"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create playlist table v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create playlist item table v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Update playlist table charset"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Update playlist_item table charset"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="drop preferences table v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="drop preferences table v3"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create preferences table v3"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Update preferences table charset"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Add column team_id in preferences"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Update team_id column values in preferences"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create alert table v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="add index alert org_id & id "
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="add index alert state"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="add index alert dashboard_id"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Create alert_rule_tag table v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Add unique index alert_rule_tag.alert_id_tag_id"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create alert_notification table v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Add column is_default"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Add column frequency"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Add column send_reminder"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Add column disable_resolve_message"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="add index alert_notification org_id & name"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Update alert table charset"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Update alert_notification table charset"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create notification_journal table v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="add index notification_journal org_id & alert_id & notifier_id"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="drop alert_notification_journal"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create alert_notification_state table v1"
+[32mprom exited with code 1
+[0m[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="add index alert_notification_state org_id & alert_id & notifier_id"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Add for to alert table"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Add column uid in alert_notification"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Update uid column values in alert_notification"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Add unique index alert_notification_org_id_uid"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Remove unique index org_id_name"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Drop old annotation table v4"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create annotation table v5"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="add index annotation 0 v3"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="add index annotation 1 v3"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="add index annotation 2 v3"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="add index annotation 3 v3"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="add index annotation 4 v3"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Update annotation table charset"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Add column region_id to annotation table"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Drop category_id index"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Add column tags to annotation table"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Create annotation_tag table v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Add unique index annotation_tag.annotation_id_tag_id"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Update alert annotations and set TEXT to empty"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Add created time to annotation table"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Add updated time to annotation table"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Add index for created in annotation table"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Add index for updated in annotation table"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Convert existing annotations from seconds to milliseconds"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Add epoch_end column"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Add index for epoch_end"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Make epoch_end the same as epoch"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Move region to single row"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create test_data table"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create dashboard_version table v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="add index dashboard_version.dashboard_id"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="add unique index dashboard_version.dashboard_id and dashboard_version.version"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Set dashboard version to 1 where 0"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="save existing dashboard data in dashboard_version table v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="alter dashboard_version.data to mediumtext v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create team table"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="add index team.org_id"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="add unique index team_org_id_name"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create team member table"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="add index team_member.org_id"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="add unique index team_member_org_id_team_id_user_id"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Add column email to team table"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Add column external to team_member table"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Add column permission to team_member table"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create dashboard acl table"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="add index dashboard_acl_dashboard_id"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="add unique index dashboard_acl_dashboard_id_user_id"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="add unique index dashboard_acl_dashboard_id_team_id"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="save default acl rules in dashboard_acl table"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create tag table"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="add index tag.key_value"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create login attempt table"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="add index login_attempt.username"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="drop index IDX_login_attempt_username - v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Rename table login_attempt to login_attempt_tmp_qwerty - v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create login_attempt v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create index IDX_login_attempt_username - v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="copy login_attempt v1 to v2"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="drop login_attempt_tmp_qwerty"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create user auth table"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create index IDX_user_auth_auth_module_auth_id - v1"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="alter user_auth.auth_id to length 190"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Add OAuth access token to user_auth"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Add OAuth refresh token to user_auth"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Add OAuth token type to user_auth"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Add OAuth expiry to user_auth"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="Add index to user_id column in user_auth"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create server_lock table"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="add index server_lock.operation_uid"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create user auth token table"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="add unique index user_auth_token.auth_token"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="add unique index user_auth_token.prev_auth_token"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="create cache_data table"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Executing migration" logger=migrator id="add unique index cache_data.cache_key"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Created default admin" logger=sqlstore user=admin
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Initializing HTTPServer" logger=server
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Initializing BackendPluginManager" logger=server
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Initializing PluginManager" logger=server
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Starting plugin search" logger=plugins
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Initializing HooksService" logger=server
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Initializing OSSLicensingService" logger=server
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Initializing InternalMetricsService" logger=server
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Initializing RemoteCache" logger=server
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Initializing QuotaService" logger=server
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Initializing ServerLockService" logger=server
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Initializing UserAuthTokenService" logger=server
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Initializing RenderingService" logger=server
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Initializing AlertEngine" logger=server
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Initializing DatasourceCacheService" logger=server
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Initializing LoginService" logger=server
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Initializing SearchService" logger=server
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Initializing TracingService" logger=server
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Initializing UsageStatsService" logger=server
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Initializing CleanUpService" logger=server
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Initializing NotificationService" logger=server
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Initializing provisioningServiceImpl" logger=server
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Initializing Stream Manager"
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="HTTP Server Listen" logger=http.server address=[::]:3000 protocol=https subUrl= socket=
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=info msg="Backend rendering via phantomJS" logger=rendering renderer=phantomJS
+[36mgrafana               |[0m t=2020-02-02T16:29:02+0000 lvl=warn msg="phantomJS is deprecated and will be removed in a future release. You should consider migrating from phantomJS to grafana-image-renderer plugin." logger=rendering renderer=phantomJS
+[33mpgadmin               |[0m NOTE: Configuring authentication for SERVER mode.
+[33mpgadmin               |[0m 
+[33mpgadmin               |[0m [2020-02-02 16:29:08 +0000] [1] [INFO] Starting gunicorn 19.9.0
+[33mpgadmin               |[0m [2020-02-02 16:29:08 +0000] [1] [INFO] Listening at: http://[::]:80 (1)
+[33mpgadmin               |[0m [2020-02-02 16:29:08 +0000] [1] [INFO] Using worker: threads
+[33mpgadmin               |[0m [2020-02-02 16:29:08 +0000] [19] [INFO] Booting worker with pid: 19
