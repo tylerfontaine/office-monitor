@@ -5,7 +5,7 @@ services:
     container_name: grafana
     image: "grafana/grafana"
     environment:
-      - GF_SERVER_ROOT_URL=https://192.168.1.32:3000
+      - GF_SERVER_ROOT_URL=https://yourhostname:3000
       - GF_SERVER_PROTOCOL=https
       - GF_SERVER_CERT_FILE=/etc/keys/cert.pem
       - GF_SERVER_CERT_KEY=/etc/keys/key.pem
@@ -34,7 +34,7 @@ services:
     container_name: prom_adapt
     image: "timescale/prometheus-postgresql-adapter"
     environment:
-      - TS_PROM_PG_HOST=192.168.1.33
+      - TS_PROM_PG_HOST=yourhostname
       - TS_PROM_PG_PASSWORD=password
     depends_on:
      - prometheus
