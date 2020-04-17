@@ -5,7 +5,11 @@ services:
     container_name: grafana
     image: "grafana/grafana"
     environment:
+<<<<<<< HEAD:docker-compose.yml
       - GF_SERVER_ROOT_URL=https://ts.dockerhost.tylerfontaine.me/grafana
+=======
+      - GF_SERVER_ROOT_URL=https://yourhostname:3000
+>>>>>>> b293a67ab1a2c8c095849d98837509dcdc11e891:docker-compose.yml.sample
       - GF_SERVER_PROTOCOL=https
       - GF_SERVER_SERVE_FROM_SUB_PATH=true
       - GF_SERVER_CERT_FILE=/etc/keys/cert.pem
@@ -26,7 +30,7 @@ services:
     container_name: pgadmin
     image: "dpage/pgadmin4"
     environment:
-      PGADMIN_DEFAULT_EMAIL: tyler@tylerfontaine.com
+      PGADMIN_DEFAULT_EMAIL: your@email.com
       PGADMIN_DEFAULT_PASSWORD: password
     ports:
       - "8080:80"
@@ -37,9 +41,14 @@ services:
     container_name: prom_adapt_alpha
     image: "timescale/timescale-prometheus"
     environment:
+<<<<<<< HEAD:docker-compose.yml
        - TS_PROM_PG_HOST=192.168.1.33
        - TS_PROM_PG_PASSWORD=password
        - TS_PROM_PG_DATABASE=prometheusalpha 
+=======
+      - TS_PROM_PG_HOST=yourhostname
+      - TS_PROM_PG_PASSWORD=password
+>>>>>>> b293a67ab1a2c8c095849d98837509dcdc11e891:docker-compose.yml.sample
     depends_on:
      - prometheus
     ports:
