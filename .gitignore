@@ -1,1 +1,3 @@
 keys/*.pem
+nginx/certs/*.pem
+nginx/config/.secrets

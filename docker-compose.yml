@@ -5,19 +5,21 @@ services:
     container_name: grafana
     image: "grafana/grafana"
     environment:
-      - GF_SERVER_ROOT_URL=https://192.168.1.32:3000
+      - GF_SERVER_ROOT_URL=https://ts.dockerhost.tylerfontaine.me/grafana
       - GF_SERVER_PROTOCOL=https
+      - GF_SERVER_SERVE_FROM_SUB_PATH=true
       - GF_SERVER_CERT_FILE=/etc/keys/cert.pem
       - GF_SERVER_CERT_KEY=/etc/keys/key.pem
       - GF_SECURITY_STRICT_TRANSPORT_SECURITY=false
       - GF_INSTALL_PLUGINS=grafana-piechart-panel
       - GF_INSTALL_DIR=/tmp/grafana
+      - GF_PATHS_DATA=/usr/local/var/lib/grafana
     ports:
       - "3000:3000"
     networks:
       - compose
     volumes:
-      - /srv/grafana:/usr/local/var/lib/grafana
+      - /srv/grafana:/usr/local//var/lib/grafana
       - /opt/docker/timescale-demo/keys:/etc/keys
       - /opt/docker/grafana-plugins:/tmp/grafana
   pgadmin:
@@ -27,21 +29,35 @@ services:
       PGADMIN_DEFAULT_EMAIL: tyler@tylerfontaine.com
       PGADMIN_DEFAULT_PASSWORD: password
     ports:
-      - "80:80"
+      - "8080:80"
+      - "8443:443"
     networks:
       - compose
-  prometheus-adapter:
-    container_name: prom_adapt
-    image: "timescale/prometheus-postgresql-adapter"
+  prometheus-adapter-alpha:
+    container_name: prom_adapt_alpha
+    image: "timescale/timescale-prometheus"
     environment:
-      - TS_PROM_PG_HOST=192.168.1.33
-      - TS_PROM_PG_PASSWORD=password
+       - TS_PROM_PG_HOST=192.168.1.33
+       - TS_PROM_PG_PASSWORD=password
+       - TS_PROM_PG_DATABASE=prometheusalpha 
     depends_on:
      - prometheus
     ports:
-      - "9201:9201"
+      - "9202:9201"
     networks:
       - compose
+#  prometheus-adapter:
+#    container_name: prom_adapt
+#    image: "timescale/prometheus-postgresql-adapter"
+#    environment:
+#      - TS_PROM_PG_HOST=192.168.1.33
+#      - TS_PROM_PG_PASSWORD=password
+#    depends_on:
+#     - prometheus
+#    ports:
+#      - "9201:9201"
+#    networks:
+#      - compose 
   prometheus:
     container_name: prom
     image: prom/prometheus:latest
@@ -52,13 +68,42 @@ services:
       - '--web.console.templates=/etc/prometheus/consoles'
       - '--storage.tsdb.retention=30d'
       - '--web.enable-lifecycle'
+      - '--web.external-url=http://ts.dockerhost.tylerfontaine.me:9090/prometheus/'
     volumes:
       - /opt/docker/timescale-demo/configs/:/etc/prometheus/
     ports:
       - "9090:9090"
     networks:
       - compose
-
+ # prometheus2:
+ #   container_name: prom2
+ #   image: prom/prometheus:latest
+ #   command:
+ #     - '--config.file=/etc/prometheus/prometheus2.yml'
+ #     - '--storage.tsdb.path=/prometheus'
+ #     - '--web.console.libraries=/etc/prometheus/console_libraries'
+ #     - '--web.console.templates=/etc/prometheus/consoles'
+ #     - '--storage.tsdb.retention=30d'
+ #     - '--web.enable-lifecycle'
+ #   volumes:
+  #    - /opt/docker/timescale-demo/configs/:/etc/prometheus/
+  #  ports:
+  #    - "9093:9090"
+  #  networks:
+  #    - compose
+#
+  reverse:
+    container_name: reverse
+    hostname: reverse
+    image: nginx
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /opt/docker/office-monitor/nginx/config:/etc/nginx
+      - /opt/docker/office-monitor/nginx/certs:/etc/ssl/private
+    networks:
+      - compose
 networks:
   compose:
     name: compose-test

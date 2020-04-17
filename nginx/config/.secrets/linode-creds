@@ -1,0 +1,3 @@
+# Linode API credentials used by Certbot
+dns_linode_key = b6af7802df74c6b1a132da34bac799f3eb5236cbfaa7a143f74e7f99d10d7544
+dns_linode_version = 4
